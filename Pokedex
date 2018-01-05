@@ -1,0 +1,3 @@
+necrozmaduskmane={num=800,icon=985,species="Necrozma",baseSpecies="Necrozma",forme="DuskMane",formeLetter="DM",types={15},genderRate=255,baseStats={97,107,101,127,89,79},abilities={"Prism Armor"},heightm=4.2,weightkg=350,color="Black"},
+poipole={num=803,icon=181,species="Poipole",types={14},baseStats={67,73,67,73,67,73},abilities={"Beast Boost"},heightm=61,weightkg=1.8,color="Purple",evos={"naganadel"},
+zeraora={num=807,icon=29,species="Zeraora",types={4},baseStats={88,112,75,102,80,153},abilities={"Volt Absorb"},heightm=1.50,weightkg=44.5,color="Yellow"},
