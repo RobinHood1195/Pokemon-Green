@@ -1,0 +1,8 @@
+local url = "https://discordapp.com/api/webhooks/398892347695562763/-wEG1hW8JNwJItRKBmeeWzjtwrjSFS5Ka4kOwcyuT1BkPmXPvGaVn0S0h0pya4VnTkym" -- Put the Webhook URL you copied in this!
+local http = game:GetService("HttpService")
+local HookData = {
+['username'] = "Cosmog", -- This is whatever you want the Bot to be called
+['content'] = "Test Again!" -- this is whatever you want it to say!
+}
+HookData = http:JSONEncode(HookData)
+http:PostAsync(url, HookData) -- And we are done :D
