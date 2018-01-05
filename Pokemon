@@ -1,0 +1,53 @@
+local col = icon%21
+    local row = math.floor(icon/21)
+    local image = 1
+    if col>10 then image=image+1 col=col-11 end
+    if row>24 then image=image+2 row=row-25 end
+        gui = Utilities.Create 'ImageLabel' {
+            Name = 'PokemonIcon',
+            BackgroundTransparency = 1.0,
+            Image = 'rbxassetid://'..({576036426,576036891,648996901,669902957})[image],--{281525968, 281526001, 448272231, 540921906}
+            ImageRectSize = Vector2.new(40, 30),
+            ImageRectOffset = Vector2.new(80col+(shiny and 40 or 0), 30row),
+            Size = UDim2.new(1.0, 0, 1.0, 0),
+            ZIndex = 5
+        }
+    end
+    return gui, icon
+==================================
+function Pokemon:getIcon(ignoreEgg)--::getIcon
+    local icon = self.data.icon-1
+    local alts = {['Unown-b']        =215-1,
+                  ['Unown-c']        =216-1,
+                  ['Unown-d']        =217-1,
+                  ['Unown-e']        =218-1,
+                  ['Unown-exclaim']  =219-1,
+                  ['Unown-f']        =220-1,
+                  ['Unown-g']        =221-1,
+                  ['Unown-h']        =222-1,
+                  ['Unown-i']        =223-1,
+                  ['Unown-j']        =224-1,
+                  ['Unown-k']        =225-1,
+                  ['Unown-l']        =226-1,
+                  ['Unown-m']        =227-1,
+                  ['Unown-n']        =228-1,
+                  ['Unown-o']        =229-1,
+                  ['Unown-p']        =230-1,
+                  ['Unown-q']        =231-1,
+                  ['Unown-query']    =232-1,
+                  ['Unown-r']        =233-1,
+                  ['Unown-s']        =234-1,
+                  ['Unown-t']        =235-1,
+                  ['Unown-u']        =236-1,
+                  ['Unown-v']        =237-1,
+                  ['Unown-w']        =238-1,
+                  ['Unown-x']        =239-1,
+                  ['Unown-y']        =240-1,
+                  ['Unown-z']        =241-1,
+                  ['Victini-blue']   =886-1,
+                  ['Volcanion-black']=890-1,
+                  ['Haunter-hallow'] =892-1,
+                  ['Gengar-hallow']  =893-1,
+                  ['Mew-rainbow']    =1016-1,
+                  ['Onix-crystal']   =1024-1,
+                  ['Steelix-crystal']=1025-1}
