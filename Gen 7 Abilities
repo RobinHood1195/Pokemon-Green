@@ -1,0 +1,83 @@
+    },
+['shadowshield'] = {
+        onSourceModifyDamage = function(damage, source, target, move)
+            if target.hp >= target.maxhp then
+                self:debug('Shadow Shield weaken')
+                return self:chainModify(0.5)
+            end
+        end,
+        id = "shadowshield",
+        name = "Shadow Shield",
+        rating = 4,
+        num = 231
+    },
+['electricsurge'] = {
+        onStart = function(pokemon)
+            self:add('-ability', pokemon, 'Electric Surge')
+        end,
+        suppressWeather = true,
+        id = "electricsurge",
+        name = "Electric Surge",
+        rating = 4,
+        num = 226
+    },
+['grassysurge'] = {
+        onStart = function(pokemon)
+            self:add('-ability', pokemon, 'Grassy Surge')
+        end,
+        suppressWeather = true,
+        id = "grassysurge",
+        name = "Grassy Surge",
+        rating = 4,
+        num = 229
+    },
+['mistysurge'] = {
+        onStart = function(pokemon)
+            self:add('-ability', pokemon, 'Misty Surge')
+        end,
+        suppressWeather = true,
+        id = "mistysurge",
+        name = "Misty Surge",
+        rating = 4,
+        num = 228
+    },
+['psychicsurge'] = {
+        onStart = function(pokemon)
+            self:add('-ability', pokemon, 'Psychic Surge')
+        end,
+        suppressWeather = true,
+        id = "psychicsurge",
+        name = "Psychic Surge",
+        rating = 4,
+        num = 227
+    },
+['beastboost'] = {
+        onSourceFaint = function(target, source, effect)
+            if effect and effect.effectType == 'Move' then
+                self:boost({atk = 1}, source)
+            end
+        end,
+        id = "beastboost",
+        name = "Beast Boost",
+        rating = 3.5,
+        num = 224
+    },
+['fullmetalbody'] = {
+        onBoost = function(boost, target, source, effect)
+            if source and target == source then return end
+            local showMsg = false
+            for i, b in pairs(boost) do
+                if b < 0 then
+                    boost[i] = nil
+                    showMsg = true
+                end
+            end
+            if showMsg and not effect.secondaries then
+                self:add("-fail", target, "unboost", "[from] ability = Full Metal Ability", "[of] " .. target)
+            end
+        end,
+        id = "fullmetalbody",
+        name = "Full Metal Body",
+        rating = 2,
+        num = 230
+    },
